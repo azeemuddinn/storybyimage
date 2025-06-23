@@ -1,0 +1,37 @@
+<div style="max-width: 750px; margin: 40px auto; padding: 35px; background: linear-gradient(135deg, #f0f4f8, #e0e7ee); border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.7) inset; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333;">
+  <h2 style="text-align: center; color: #2c3e50; font-size: 2.2em; margin-bottom: 25px; letter-spacing: 0.5px;">
+    ✨ Your Story Awaits! ✨
+  </h2>
+
+  <div style="text-align: center; margin: 30px 0;">
+    <img src="{{ image.image.url }}" width="350" style="border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); border: 4px solid #ffffff;">
+  </div>
+
+  <h3 style="color: #3498db; font-size: 1.5em; margin-top: 30px; margin-bottom: 10px; border-bottom: 2px solid #aec6d9; padding-bottom: 8px;">
+    📝 Image Description:
+  </h3>
+  <p style="line-height: 1.7; font-size: 1.1em; color: #555; background: #ffffff; padding: 18px; border-radius: 10px; box-shadow: inset 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 25px;">
+    {{ image.description }}
+  </p>
+
+  {% if mood %}
+  <h3 style="color: #3498db; font-size: 1.5em; margin-top: 30px; margin-bottom: 10px; border-bottom: 2px solid #aec6d9; padding-bottom: 8px;">
+    📖
+    {{ mood|title }} Story:
+  </h3>
+  {% else %}
+  <h3 style="color: #3498db; font-size: 1.5em; margin-top: 30px; margin-bottom: 10px; border-bottom: 2px solid #aec6d9; padding-bottom: 8px;">
+    📖 Your Generated Story:
+  </h3>
+  {% endif %}
+
+  <p style="line-height: 1.8; font-size: 1.15em; color: #333; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); white-space: pre-wrap; font-family: 'Georgia', serif;">
+    {{ story }}
+  </p>
+
+  <div style="text-align: center; margin-top: 40px;">
+    <a href="/" style="display: inline-block; text-decoration: none; background-color: #28a745; color: white; padding: 14px 28px; border-radius: 8px; font-size: 1.1em; font-weight: bold; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      🖼️ Generate Another Story
+    </a>
+  </div>
+</div>

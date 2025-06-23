@@ -1,0 +1,37 @@
+<h2 style="text-align: center; color: #2c3e50; font-family: 'Arial', sans-serif; margin-bottom: 30px;">
+  ✨ Unleash a Story from Your Image ✨
+</h2>
+
+<div style="max-width: 450px; margin: 0 auto; padding: 30px; background: linear-gradient(145deg, #ffffff, #f0f0f0); border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.6) inset;">
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div style="margin-bottom: 25px;">
+      <label for="{{ form.image.id_for_label }}" style="display: block; margin-bottom: 8px; color: #34495e; font-family: 'Arial', sans-serif; font-size: 1.1em; font-weight: bold;">
+        📸 Choose Your Image:
+      </label>
+      {{ form.image }}
+      <p style="font-size: 0.9em; color: #7f8c8d; margin-top: 5px;">(Max file size: 5MB)</p>
+    </div>
+
+    <div style="margin-bottom: 25px;">
+      <label for="mood" style="display: block; margin-bottom: 8px; color: #34495e; font-family: 'Arial', sans-serif; font-size: 1.1em; font-weight: bold;">
+        🎭 Set the Mood (Optional):
+      </label>
+      <select name="mood" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 1em; color: #555; background-color: #fcfcfc; appearance: none; -webkit-appearance: none; -moz-appearance: none; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-6.6%200-13.2%202-18.4%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205.8%202.2%2011.4%205.4%2015L138.2%20290.8c5.4%205.4%2013%208.2%2020.6%208.2s15.2-2.8%2020.6-8.2L287%2097.2c3.2-3.6%205.4-9.2%205.4-15%200-5.8-2.2-11.4-5.4-15z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 10px center; background-size: 12px; cursor: pointer;">
+        <option value="" style="color: #999;">-- Spark a creative mood --</option>
+        <option value="funny">🤣 Funny</option>
+        <option value="mysterious">🕵️‍♀️ Mysterious</option>
+        <option value="sad">😢 Sad</option>
+        <option value="romantic">❤️ Romantic</option>
+        <option value="inspirational">✨ Inspirational</option>
+        <option value="adventurous">🌍 Adventurous</option>
+        <option value="scientific">🔬 Scientific</option>
+      </select>
+    </div>
+
+    <button type="submit" style="width: 100%; background-color: #3498db; color: white; padding: 14px 20px; border: none; border-radius: 8px; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+      🚀 Generate My Story!
+    </button>
+  </form>
+</div>
