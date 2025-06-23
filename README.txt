@@ -31,11 +31,4 @@ Users can:
 4. View the result and upload another
 
 ---
-
-## 🛠️ Setup Instructions (Local)
-
-1. **Clone the repo**
-
-   ```bash
-   git clone https://github.com/yourusername/storybyimage.git
-   cd storybyimage
+ 

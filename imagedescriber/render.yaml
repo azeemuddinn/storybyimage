@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: storybyimage
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn imagedescriber.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: imagedescriber.settings
+      - key: PYTHON_VERSION
+        value: 3.11
+      - key: DEBUG
+        value: "False"

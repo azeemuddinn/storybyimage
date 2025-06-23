@@ -25,9 +25,12 @@ SECRET_KEY = 'django-insecure-vtv1x9nlu9=8c2i%tz^c5w2mm8x5o71j@r6nn%bs5qchfj9lma
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
-
+# Hosts/domain names that are valid for this site; required if DEBUG is False
+ALLOWED_HOSTS = ['*']
+# Static files (CSS, JavaScript, Images)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+# Media files settings
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
