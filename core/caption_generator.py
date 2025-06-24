@@ -1,18 +1,22 @@
-from transformers import BlipProcessor, BlipForConditionalGeneration
+import requests
+import os
 from PIL import Image
-import torch
+import base64
+from io import BytesIO
 
-# Load model only once
-processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
-model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
+HF_TOKEN = os.getenv("HF_TOKEN")
+API_URL = "https://api-inference.huggingface.co/models/Salesforce/blip-image-captioning-base"
+headers = {"Authorization": f"Bearer {HF_TOKEN}"}
 
 def generate_caption(image_path):
-    return "A test image description (no model loaded)."
-    image = Image.open(image_path).convert('RGB')
-    inputs = processor(image, return_tensors="pt")
+    with Image.open(image_path) as img:
+        buffered = BytesIO()
+        img.save(buffered, format="PNG")
+        img_bytes = buffered.getvalue()
 
-    with torch.no_grad():
-        output = model.generate(**inputs)
-
-    caption = processor.decode(output[0], skip_special_tokens=True)
-    return caption
+    response = requests.post(API_URL, headers=headers, files={"file": img_bytes})
+    try:
+        result = response.json()
+        return result[0]["generated_text"]
+    except Exception:
+        return "Unable to generate caption right now."
